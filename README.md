@@ -91,9 +91,6 @@ This is the **mandatory protocol** defined by RFC 2.0.
 subit-64/
 │
 ├── README.md
-├── LICENSE
-├── CHANGELOG.md
-├── ROADMAP.md
 │
 ├── docs/
 │   ├── SUBIT-RFC.md
