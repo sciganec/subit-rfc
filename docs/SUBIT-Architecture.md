@@ -240,9 +240,3 @@ These MUST NOT modify the protocol.
 
 ---
 
-
----
-
-- **ROADMAP.md**  
-
-Just tell me which file you want next.
