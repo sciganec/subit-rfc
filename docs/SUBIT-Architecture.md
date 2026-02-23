@@ -1,197 +1,184 @@
 # SUBIT Architecture  
-*Structural Model, Isomorphisms, and 64‑Archetype Framework*  
-Version 1.0 — February 2026
+*Structural Model, Axes, and Encoding Isomorphisms*  
+Version 2.0
 
-This document defines the **architectural foundations** of the SUBIT system:  
-its axes, bit‑structure, isomorphic layers, and the generative logic behind the 64 archetypes.
+This document defines the **architectural foundations** of the SUBIT Structural Bit Protocol.  
+It describes the six axes, the 6‑bit structure, and the isomorphic encoding layers that can be used to represent SUBIT states.
 
-SUBIT is a **6‑axis structural operator**:
-
-**Tension → Vector → Interaction → Meaning → Action → Structure**
-
-Each axis is binary (Yin/Yang), producing a 6‑bit state space of 64 archetypes.
+This document does **not** define archetypes, naming systems, or state tables.  
+Those are implementation‑specific and maintained separately.
 
 ---
 
-# 1. Core Model
+# 1. Overview
 
-## 1.1 SUBIT as a 6‑bit Register
-A SUBIT state is defined as:
+SUBIT is a **six‑axis structural operator** that models any process as a progression through:
+
+**Tension → Vector → Interaction → Meaning → Action → Structure**
+
+A SUBIT state is represented as a **6‑bit vector**:
 
 ```
 SUBIT = {0,1}^6
 ```
 
-This yields:
+This yields a structural state space of:
 
 ```
-2^6 = 64 structural archetypes
+2^6 = 64 possible configurations
 ```
 
-Each bit corresponds to one axis:
+SUBIT is:
 
-| Bit | Axis        | Description |
-|-----|-------------|-------------|
-| b1  | Tension     | unresolved force, uncertainty |
-| b2  | Vector      | direction of movement or intention |
-| b3  | Interaction | relationship between elements |
-| b4  | Meaning     | pattern or interpretation |
-| b5  | Action      | transformation or event |
-| b6  | Structure   | resulting configuration |
+- minimal  
+- deterministic  
+- model‑agnostic  
+- extensible  
+- suitable for LLMs and agentic systems  
 
-Each bit has two polarities:
+---
+
+# 2. The Six Axes
+
+Each bit corresponds to one structural axis.
+
+## 2.1 Tension (b1)
+Unresolved force, ambiguity, or initiating pressure.
+
+## 2.2 Vector (b2)
+Directional intention or movement.
+
+## 2.3 Interaction (b3)
+Relational dynamics between elements or agents.
+
+## 2.4 Meaning (b4)
+Interpretation, pattern, or significance.
+
+## 2.5 Action (b5)
+Transformation, event, or operative step.
+
+## 2.6 Structure (b6)
+Resulting configuration or stabilized form.
+
+### Polarity
+Each axis has two polarities:
 
 - **0 = Yin** (latent, receptive, passive)  
 - **1 = Yang** (active, directed, manifest)
 
 ---
 
-# 2. Axis Semantics
+# 3. Canonical Representation
 
-## 2.1 Tension (T)
-Identifies the core unresolved force, conflict, or ambiguity.
+The canonical representation of a SUBIT state is a **6‑bit binary string**:
 
-## 2.2 Vector (V)
-Specifies the direction of movement, intention, or drive.
-
-## 2.3 Interaction (I)
-Describes how elements, agents, or forces relate.
-
-## 2.4 Meaning (M)
-Extracts the underlying pattern or interpretation.
-
-## 2.5 Action (A)
-Represents the transformation, decision, or event.
-
-## 2.6 Structure (S)
-Defines the resulting configuration or stable form.
-
----
-
-# 3. Isomorphic Representations
-
-SUBIT is intentionally **multi‑representational**.  
-All encodings below are mathematically equivalent.
-
----
-
-## 3.1 Binary Encoding (canonical)
 ```
 b1 b2 b3 b4 b5 b6
 ```
 
-Example:
+Example (not tied to any archetype):
+
 ```
 010111
 ```
 
 ---
 
-## 3.2 Bigram Encoding (3 × 2‑bit)
+# 4. Isomorphic Encodings
+
+SUBIT supports multiple **isomorphic** (mathematically equivalent) representations.  
+These encodings do not change the underlying 6‑bit structure.
+
+Implementations MAY use any of the following.
+
+---
+
+## 4.1 Bigram Encoding (3 × 2‑bit)
+
+The 6 bits can be grouped into three bigrams:
+
 ```
-(00, 01, 10, 11)^3
+(b1 b2), (b3 b4), (b5 b6)
+```
+
+Each bigram is one of:
+
+```
+00, 01, 10, 11
 ```
 
 Example:
+
 ```
-["01", "01", "11"]
+["01", "10", "11"]
 ```
 
 ---
 
-## 3.3 Trigram Encoding (2 × 3‑bit)
-Two trigrams from the canonical 8‑trigram set:
+## 4.2 Trigram Encoding (2 × 3‑bit)
+
+The 6 bits can be grouped into two trigrams:
 
 ```
-000 Heaven
-001 Lake
-010 Fire
-011 Thunder
-100 Wind
-101 Water
-110 Mountain
-111 Earth
+(b1 b2 b3), (b4 b5 b6)
+```
+
+Each trigram is one of the canonical 8:
+
+```
+000
+001
+010
+011
+100
+101
+110
+111
 ```
 
 Example:
+
 ```
-["010", "111"] = Fire over Earth
+["010", "111"]
 ```
 
 ---
 
-## 3.4 Color Encoding (2‑color pair)
-The canonical 8‑color palette:
+## 4.3 Color Encoding (2‑Color Pair)
+
+Implementations MAY define an 8‑color palette and map each trigram to a color.
+
+Example palette (non‑normative):
 
 ```
 Blue, Green, Lime, Yellow, Orange, Red, Burgundy, Purple
 ```
 
-Example:
+Example encoding:
+
 ```
 ["Lime", "Red"]
 ```
 
 ---
 
-## 3.5 Subject–Vector–Phase Encoding (4×4×4)
-A structural decomposition into:
+## 4.4 Subject–Vector–Phase Encoding (4×4×4)
 
-### Subjects (4)
-```
-ME, WE, YOU, THEY
-```
+Implementations MAY define a 4×4×4 mapping:
 
-### Vectors (4)
-```
-EAST, SOUTH, WEST, NORTH
-```
+- **Subjects** (4)  
+- **Vectors** (4)  
+- **Phases** (4)  
 
-### Phases (4)
-```
-SPRING, SUMMER, AUTUMN, WINTER
-```
-
-Example:
-```
-YOU / WEST / AUTUMN
-```
-
----
-
-# 4. The 64‑Archetype Grid
-
-SUBIT‑64 is generated by combining:
-
-- 8 trigrams  
-- 8 trigrams  
-- 64 pairings  
-
-Or equivalently:
-
-- 4 subjects × 4 vectors × 4 phases  
-- 8 colors × 8 colors  
-- 3 bigrams  
-- 6 bits  
-
-All representations map to the same 64 archetypes.
-
-Each archetype is defined by:
-
-- id (0–63)  
-- binary code  
-- bigram triple  
-- trigram pair  
-- color pair  
-- subject–vector–phase triple  
-- canonical name  
-- short description  
-
-The full machine‑readable set is located in:
+Example categories (non‑normative):
 
 ```
-/schema/archetypes.json
+Subjects: ME, WE, YOU, THEY
+Vectors: EAST, SOUTH, WEST, NORTH
+Phases: SPRING, SUMMER, AUTUMN, WINTER
 ```
+
+This encoding is optional and domain‑specific.
 
 ---
 
@@ -199,7 +186,7 @@ The full machine‑readable set is located in:
 
 SUBIT is not only a static encoding — it is a **process operator**.
 
-A SUBIT response always follows:
+A SUBIT response always follows the sequence:
 
 ```
 Tension:
@@ -210,7 +197,7 @@ Action:
 Structure:
 ```
 
-This sequence models:
+This models:
 
 1. **Problem emergence**  
 2. **Directional intention**  
@@ -219,14 +206,7 @@ This sequence models:
 5. **Transformation**  
 6. **Stabilization**  
 
-This makes SUBIT suitable for:
-
-- reasoning  
-- planning  
-- creativity  
-- analysis  
-- decision‑making  
-- agent workflows  
+This sequence is mandatory for LLMs using the SUBIT protocol.
 
 ---
 
@@ -242,66 +222,27 @@ SUBIT uses the smallest possible structure (6 bits) that still captures:
 - transformation  
 - form  
 
-## 6.2 Isomorphism
-All representations (binary, trigram, color, etc.) are equivalent views of the same structure.
-
-## 6.3 Universality
-SUBIT applies to:
-
-- text  
-- processes  
-- systems  
-- decisions  
-- emotions  
-- strategies  
-- narratives  
-
-## 6.4 Determinism
+## 6.2 Determinism
 Given the same input, SUBIT produces the same structural decomposition.
 
-## 6.5 Extensibility
-SUBIT can be extended with:
+## 6.3 Isomorphism
+All encodings (binary, bigram, trigram, color, SVP) are equivalent views of the same structure.
 
-- transition maps  
-- archetype families  
-- embeddings  
-- agent protocols  
+## 6.4 Extensibility
+Implementations MAY define:
 
----
+- naming systems  
+- archetype tables  
+- extended state sets  
+- domain‑specific mappings  
 
-# 7. Example: Full Structural Encoding
-
-Example archetype:
-
-```
-ID: 14
-Binary: 001110
-Bigram: ["00", "11", "10"]
-Trigram: ["001", "110"]
-Color: ["Green", "Burgundy"]
-Subject: ME
-Vector: NORTH
-Phase: AUTUMN
-Name: Boundary
-Description: Definition of limits.
-```
+These MUST NOT modify the protocol.
 
 ---
 
-# 8. File Structure
-
-This document is part of the SUBIT documentation suite:
-
-```
-docs/
-  SUBIT-RFC.md
-  SUBIT-Prompt-Pack-v2.md
-  SUBIT-JSON-Schema.md
-  SUBIT-Architecture.md
-  SUBIT-Archetype-Guide.md
-schema/
-  subit.schema.json
-  archetypes.json
-```
 
 ---
+
+- **ROADMAP.md**  
+
+Just tell me which file you want next.
