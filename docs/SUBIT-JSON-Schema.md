@@ -1,85 +1,110 @@
-# SUBIT JSON Schema Documentation  
+# SUBIT JSON Schema  
+*Normative Machine‑Readable Specification for SUBIT States*  
+Version 2.0
 
-This document defines the **official JSON schema** for representing SUBIT states, archetypes, and structural metadata.  
-It is intended for use in:
+This document defines the **canonical JSON schema** for representing SUBIT states in machine‑readable form.
 
-- LLMs  
-- agentic systems  
-- reasoning engines  
-- data pipelines  
-- visualization tools  
-- SUBIT‑compatible applications  
-
-The schema is model‑agnostic and designed for long‑term stability.
+The schema is **normative** and part of **SUBIT RFC 2.0**.  
+It describes only the structural representation of a SUBIT state.  
+Naming systems, archetype tables, and domain‑specific mappings are **not part of this schema**.
 
 ---
 
 # 1. Overview
 
-A **SUBIT state** is a 6‑bit structural configuration:
+A SUBIT state is a **6‑bit structural configuration**:
 
 ```
 SUBIT = {0,1}^6
 ```
 
-Each bit corresponds to one of the six axes:
+The JSON schema defines:
 
-1. Tension  
-2. Vector  
-3. Interaction  
-4. Meaning  
-5. Action  
-6. Structure  
+- the 6 axis values  
+- the canonical binary representation  
+- optional isomorphic encodings (bigram, trigram, color, SVP)  
 
-This yields **64 archetypes**, each of which can be represented in multiple isomorphic formats:
-
-- binary  
-- bigram (3×2‑bit)  
-- trigram (2×3‑bit)  
-- color pair  
-- subject–vector–phase triple  
-
-The JSON schema standardizes these representations.
+All fields except the six axes and the binary string are optional.
 
 ---
 
-# 2. Files
+# 2. Canonical Fields
 
-The SUBIT JSON system consists of:
+A valid SUBIT state MUST include:
 
-### **2.1. subit.schema.json**  
-Defines the structure of a single SUBIT state or archetype.
+- `tension` (0 or 1)  
+- `vector` (0 or 1)  
+- `interaction` (0 or 1)  
+- `meaning` (0 or 1)  
+- `action` (0 or 1)  
+- `structure` (0 or 1)  
+- `binary` (string of 6 characters, each "0" or "1")  
 
-### **2.2. archetypes.json**  
-Contains the full list of 64 archetypes in machine‑readable form.
+The `binary` field MUST match the axis values in order:
 
-### **2.3. Supporting files**
-- `subit-colors.json`  
-- optional per‑archetype files in `/data/archetypes/`
+```
+binary = tension + vector + interaction + meaning + action + structure
+```
 
 ---
 
-# 3. SUBIT Schema (subit.schema.json)
+# 3. Optional Fields
 
-Below is the canonical schema for a SUBIT state.
+Implementations MAY include:
+
+- `bigram` — array of three 2‑bit strings  
+- `trigram` — array of two 3‑bit strings  
+- `color` — array of two color identifiers  
+- `svp` — object with `subject`, `vector`, `phase` fields  
+- `metadata` — arbitrary implementation‑specific information  
+
+These fields MUST NOT alter the canonical 6‑bit definition.
+
+---
+
+# 4. SUBIT JSON Schema (Canonical)
 
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "SUBIT State Schema",
+  "title": "SUBIT State",
+  "description": "Canonical machine-readable representation of a SUBIT structural state.",
   "type": "object",
-  "required": ["id", "binary", "bigram", "trigram", "color", "subject", "vector", "phase", "name"],
   "properties": {
-    "id": {
+    "tension": {
       "type": "integer",
-      "minimum": 0,
-      "maximum": 63,
-      "description": "Archetype index (0–63)."
+      "enum": [0, 1],
+      "description": "Axis 1: Tension (0 = Yin, 1 = Yang)"
+    },
+    "vector": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Axis 2: Vector (0 = Yin, 1 = Yang)"
+    },
+    "interaction": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Axis 3: Interaction (0 = Yin, 1 = Yang)"
+    },
+    "meaning": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Axis 4: Meaning (0 = Yin, 1 = Yang)"
+    },
+    "action": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Axis 5: Action (0 = Yin, 1 = Yang)"
+    },
+    "structure": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Axis 6: Structure (0 = Yin, 1 = Yang)"
     },
     "binary": {
       "type": "string",
       "pattern": "^[01]{6}$",
-      "description": "6-bit binary representation."
+      "description": "Canonical 6-bit representation (b1 b2 b3 b4 b5 b6)."
     },
     "bigram": {
       "type": "array",
@@ -89,7 +114,7 @@ Below is the canonical schema for a SUBIT state.
       },
       "minItems": 3,
       "maxItems": 3,
-      "description": "Three 2-bit bigrams."
+      "description": "Optional: three 2-bit bigrams."
     },
     "trigram": {
       "type": "array",
@@ -99,143 +124,98 @@ Below is the canonical schema for a SUBIT state.
       },
       "minItems": 2,
       "maxItems": 2,
-      "description": "Two 3-bit trigrams."
+      "description": "Optional: two 3-bit trigrams."
     },
     "color": {
       "type": "array",
-      "items": {
-        "type": "string",
-        "enum": ["Blue", "Green", "Lime", "Yellow", "Orange", "Red", "Burgundy", "Purple"]
-      },
+      "items": { "type": "string" },
       "minItems": 2,
       "maxItems": 2,
-      "description": "Color pair representation."
+      "description": "Optional: two-color encoding (implementation-defined palette)."
     },
-    "subject": {
-      "type": "string",
-      "enum": ["ME", "WE", "YOU", "THEY"],
-      "description": "Subject axis."
+    "svp": {
+      "type": "object",
+      "properties": {
+        "subject": { "type": "string" },
+        "vector": { "type": "string" },
+        "phase": { "type": "string" }
+      },
+      "required": ["subject", "vector", "phase"],
+      "description": "Optional: Subject–Vector–Phase encoding."
     },
-    "vector": {
-      "type": "string",
-      "enum": ["EAST", "SOUTH", "WEST", "NORTH"],
-      "description": "Vector axis."
-    },
-    "phase": {
-      "type": "string",
-      "enum": ["SPRING", "SUMMER", "AUTUMN", "WINTER"],
-      "description": "Phase axis."
-    },
-    "name": {
-      "type": "string",
-      "description": "Canonical archetype name."
-    },
-    "description": {
-      "type": "string",
-      "description": "Short description of the archetype."
+    "metadata": {
+      "type": "object",
+      "description": "Optional implementation-specific metadata."
     }
+  },
+  "required": [
+    "tension",
+    "vector",
+    "interaction",
+    "meaning",
+    "action",
+    "structure",
+    "binary"
+  ]
+}
+```
+
+---
+
+# 5. Validation Rules
+
+A SUBIT state is valid if:
+
+1. All six axes are present and are either 0 or 1.  
+2. The `binary` field is exactly 6 characters long.  
+3. The `binary` field matches the axis values in order.  
+4. Optional encodings (bigram, trigram, color, svp) are consistent with the binary value.  
+5. No additional fields alter the canonical 6‑bit definition.
+
+---
+
+# 6. Serialization Guidelines
+
+### 6.1 Minimal Serialization (recommended)
+```json
+{
+  "tension": 0,
+  "vector": 1,
+  "interaction": 0,
+  "meaning": 1,
+  "action": 1,
+  "structure": 0,
+  "binary": "010110"
+}
+```
+
+### 6.2 Extended Serialization (optional)
+```json
+{
+  "tension": 0,
+  "vector": 1,
+  "interaction": 0,
+  "meaning": 1,
+  "action": 1,
+  "structure": 0,
+  "binary": "010110",
+  "bigram": ["01", "01", "10"],
+  "trigram": ["010", "110"],
+  "color": ["Green", "Orange"],
+  "svp": {
+    "subject": "ME",
+    "vector": "WEST",
+    "phase": "AUTUMN"
   }
 }
 ```
 
 ---
 
-# 4. Archetype Set (archetypes.json)
+# 7. Notes
 
-This file contains an array of **64 objects**, each conforming to the schema above.
-
-Example entry:
-
-```json
-{
-  "id": 0,
-  "binary": "000000",
-  "bigram": ["00", "00", "00"],
-  "trigram": ["000", "000"],
-  "color": ["Blue", "Blue"],
-  "subject": "ME",
-  "vector": "EAST",
-  "phase": "SPRING",
-  "name": "Origon",
-  "description": "Pure potential, unformed state."
-}
-```
-
-The full file is located at:
-
-```
-/schema/archetypes.json
-```
-
----
-
-# 5. Color Palette (subit-colors.json)
-
-The canonical 8‑color palette:
-
-```json
-[
-  "Blue",
-  "Green",
-  "Lime",
-  "Yellow",
-  "Orange",
-  "Red",
-  "Burgundy",
-  "Purple"
-]
-```
-
----
-
-# 6. Validation
-
-Any SUBIT state or archetype can be validated using standard JSON Schema tools:
-
-- `ajv`  
-- `jsonschema`  
-- `pydantic`  
-- `typescript-json-schema`  
-
-Example (Node.js):
-
-```bash
-npx ajv validate -s schema/subit.schema.json -d schema/archetypes.json
-```
-
----
-
-# 7. Usage in LLMs and Agents
-
-### **7.1. LLMs**
-- load `archetypes.json`  
-- use `subit.schema.json` to enforce structure  
-- generate or analyze states using the SUBIT protocol  
-
-### **7.2. Agents**
-- treat SUBIT as a state machine  
-- use archetypes as nodes  
-- transitions can be defined externally  
-
-### **7.3. Tools**
-- visualization  
-- clustering  
-- reasoning layers  
-- structural embeddings  
-
----
-
-# 8. Versioning
-
-This document defines:
-
-**SUBIT JSON Schema v1.0**
-
-Future versions may include:
-
-- extended metadata  
-- transition maps  
-- embedding vectors  
-- archetype families  
+- This schema defines **structure**, not semantics.  
+- Naming systems and archetype tables are **external** to this schema.  
+- Implementations MAY extend metadata but MUST NOT alter the canonical fields.  
 
 ---
