@@ -1,4 +1,16 @@
 # SUBIT‑64 — Structural Bit Protocol  
+<p align="center">
+
+  <img src="https://img.shields.io/github/v/release/sciganec/subit-rfc?color=blue&label=SUBIT%20Version" />
+  <img src="https://img.shields.io/github/license/sciganec/subit-rfc?color=green" />
+  <img src="https://img.shields.io/badge/docs-complete-blue" />
+  <img src="https://img.shields.io/badge/status-active-brightgreen" />
+  <img src="https://img.shields.io/badge/SUBIT-RFC%202.0-black" />
+  <img src="https://img.shields.io/badge/isomorphism-12%20layers-purple" />
+  <img src="https://img.shields.io/badge/color%20standard-v1.1-orange" />
+  <img src="https://img.shields.io/badge/schema-validated-blue" />
+
+</p>
 
 SUBIT‑64 is a **formal structural protocol** based on a 6‑bit operator that models any process as a progression through:
 
