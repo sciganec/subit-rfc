@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SUBIT State",
+  "description": "Canonical machine-readable representation of a SUBIT structural state (RFC 2.0).",
+  "type": "object",
+
+  "properties": {
+    "tension": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Axis 1: Tension (0 = Yin, 1 = Yang)"
+    },
+    "vector": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Axis 2: Vector (0 = Yin, 1 = Yang)"
+    },
+    "interaction": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Axis 3: Interaction (0 = Yin, 1 = Yang)"
+    },
+    "meaning": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Axis 4: Meaning (0 = Yin, 1 = Yang)"
+    },
+    "action": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Axis 5: Action (0 = Yin, 1 = Yang)"
+    },
+    "structure": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Axis 6: Structure (0 = Yin, 1 = Yang)"
+    },
+
+    "binary": {
+      "type": "string",
+      "pattern": "^[01]{6}$",
+      "description": "Canonical 6-bit representation (b1 b2 b3 b4 b5 b6). Must match the axis values."
+    },
+
+    "bigram": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[01]{2}$"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Optional: three 2-bit bigrams."
+    },
+
+    "trigram": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[01]{3}$"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Optional: two 3-bit trigrams."
+    },
+
+    "color": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Optional: two-color encoding (implementation-defined palette)."
+    },
+
+    "svp": {
+      "type": "object",
+      "properties": {
+        "subject": { "type": "string" },
+        "vector": { "type": "string" },
+        "phase": { "type": "string" }
+      },
+      "required": ["subject", "vector", "phase"],
+      "description": "Optional: Subject–Vector–Phase encoding."
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Optional implementation-specific metadata."
+    }
+  },
+
+  "required": [
+    "tension",
+    "vector",
+    "interaction",
+    "meaning",
+    "action",
+    "structure",
+    "binary"
+  ]
+}
