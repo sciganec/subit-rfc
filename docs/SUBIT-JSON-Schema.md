@@ -156,7 +156,7 @@ Example entry:
   "subject": "ME",
   "vector": "EAST",
   "phase": "SPRING",
-  "name": "Origin",
+  "name": "Origon",
   "description": "Pure potential, unformed state."
 }
 ```
