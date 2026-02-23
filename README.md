@@ -1,5 +1,4 @@
 # SUBIT‑64 — Structural Bit Protocol  
-**Version 2.0 — February 2026**
 
 SUBIT‑64 is a **formal structural protocol** based on a 6‑bit operator that models any process as a progression through:
 
@@ -148,7 +147,7 @@ Respond in Tension / Vector / Interaction / Meaning / Action / Structure format.
 
 ## 📄 License
 
-MIT.
+MIT
 
 ---
 
