@@ -47,7 +47,6 @@ The RFC defines the operator; implementations may define naming systems or arche
 
 ### **SUBIT RFC 2.0 (Protocol Only)**  
 Defines the operator, axes, encoding formats, and mandatory LLM response structure.  
-Contains **no archetypes**.  
 `/docs/SUBIT-RFC.md`
 
 ### **Architecture**  
@@ -57,12 +56,6 @@ Bit structure, axis semantics, and isomorphic encodings (binary, bigram, trigram
 ### **JSON Schema**  
 Machine‑readable definition of a SUBIT state.  
 `/schema/subit.schema.json`
-
-### **Style‑A Naming System (Reference Implementation)**  
-A complete 64‑state naming layer using structural, single‑word, technical names (Origon, Sparon, Divon…).  
-Not part of the RFC.  
-`/docs/SUBIT-Archetype-Guide.md`  
-`/schema/archetypes.json`
 
 ### **Prompt Pack v2.0**  
 Operational prompts for LLMs using the SUBIT protocol.  
@@ -93,43 +86,6 @@ This is the **mandatory protocol** defined by RFC 2.0.
 
 ---
 
-## 🧩 Reference Implementations (Not Part of RFC)
-
-Implementations MAY define:
-
-- naming systems  
-- archetype tables  
-- extended state sets  
-- domain‑specific mappings  
-
-This repository includes one such implementation:
-
-### **Style‑A 64‑State Naming Layer**  
-A structural, technical, neutral naming system using functional suffixes:
-
-```
--on  latent
--ex  activation
--or  force
--is  interpretation
--um  stability
--ax  shift
--ar  integration
--us  dissolution
-```
-
-Example:
-
-```
-ID: 0
-Binary: 000000
-Name: Origon
-```
-
-These names are **not normative** and **not part of the RFC**.
-
----
-
 ## 📂 Repository Structure
 
 ```
@@ -144,18 +100,15 @@ subit-64/
 │   ├── SUBIT-RFC.md
 │   ├── SUBIT-Architecture.md
 │   ├── SUBIT-Prompt-Pack-v2.md
-│   ├── SUBIT-Archetype-Guide.md
 │   └── SUBIT-JSON-Schema.md
 │
 ├── schema/
-│   ├── subit.schema.json
-│   └── archetypes.json
+│   └── subit.schema.json
 │
 ├── examples/
 │   ├── subit-analysis.md
 │   ├── subit-dialogues.md
-│   ├── subit-transformations.md
-│   └── subit-archetype-usage.md
+│   └── subit-transformations.md
 │
 └── assets/
     ├── diagrams/
@@ -195,7 +148,7 @@ Respond in Tension / Vector / Interaction / Meaning / Action / Structure format.
 
 ## 📄 License
 
-MIT License.
+MIT.
 
 ---
 
