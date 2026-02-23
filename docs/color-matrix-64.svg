@@ -1,0 +1,250 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" font-family="Arial" font-size="8">
+
+  <!-- Canonical trigram order -->
+  <!-- 100, 101, 110, 111, 011, 010, 001, 000 -->
+
+  <!-- Column labels -->
+  <g fill="#000000" font-size="10" font-weight="bold">
+    <text x="80"  y="20">100</text>
+    <text x="120" y="20">101</text>
+    <text x="160" y="20">110</text>
+    <text x="200" y="20">111</text>
+    <text x="240" y="20">011</text>
+    <text x="280" y="20">010</text>
+    <text x="320" y="20">001</text>
+    <text x="360" y="20">000</text>
+  </g>
+
+  <!-- Row labels -->
+  <g fill="#000000" font-size="10" font-weight="bold">
+    <text x="20" y="60">100</text>
+    <text x="20" y="100">101</text>
+    <text x="20" y="140">110</text>
+    <text x="20" y="180">111</text>
+    <text x="20" y="220">011</text>
+    <text x="20" y="260">010</text>
+    <text x="20" y="300">001</text>
+    <text x="20" y="340">000</text>
+  </g>
+
+  <!-- 64 cells -->
+  <!-- Each cell is 40×40 px -->
+  <!-- Starting at (60,40) -->
+
+  <!-- Row 100 -->
+  <g>
+    <rect x="60" y="40" width="40" height="40" fill="#FF8800"/>
+    <text x="62" y="68" fill="#000">#FF8800</text>
+
+    <rect x="100" y="40" width="40" height="40" fill="#FF0022"/>
+    <text x="102" y="68" fill="#000">#FF0022</text>
+
+    <rect x="140" y="40" width="40" height="40" fill="#660000"/>
+    <text x="142" y="68" fill="#FFF">#660000</text>
+
+    <rect x="180" y="40" width="40" height="40" fill="#660022"/>
+    <text x="182" y="68" fill="#FFF">#660022</text>
+
+    <rect x="220" y="40" width="40" height="40" fill="#FF6E00"/>
+    <text x="222" y="68" fill="#000">#FF6E00</text>
+
+    <rect x="260" y="40" width="40" height="40" fill="#66DD00"/>
+    <text x="262" y="68" fill="#000">#66DD00</text>
+
+    <rect x="300" y="40" width="40" height="40" fill="#00AA00"/>
+    <text x="302" y="68" fill="#000">#00AA00</text>
+
+    <rect x="340" y="40" width="40" height="40" fill="#0066FF"/>
+    <text x="342" y="68" fill="#FFF">#0066FF</text>
+  </g>
+
+  <!-- Row 101 -->
+  <g>
+    <rect x="60" y="80" width="40" height="40" fill="#FF0022"/>
+    <text x="62" y="108" fill="#000">#FF0022</text>
+
+    <rect x="100" y="80" width="40" height="40" fill="#FF0033"/>
+    <text x="102" y="108" fill="#000">#FF0033</text>
+
+    <rect x="140" y="80" width="40" height="40" fill="#660011"/>
+    <text x="142" y="108" fill="#FFF">#660011</text>
+
+    <rect x="180" y="80" width="40" height="40" fill="#660033"/>
+    <text x="182" y="108" fill="#FFF">#660033</text>
+
+    <rect x="220" y="80" width="40" height="40" fill="#FF0022"/>
+    <text x="222" y="108" fill="#000">#FF0022</text>
+
+    <rect x="260" y="80" width="40" height="40" fill="#66CC11"/>
+    <text x="262" y="108" fill="#000">#66CC11</text>
+
+    <rect x="300" y="80" width="40" height="40" fill="#00AA22"/>
+    <text x="302" y="108" fill="#000">#00AA22</text>
+
+    <rect x="340" y="80" width="40" height="40" fill="#0066FF"/>
+    <text x="342" y="108" fill="#FFF">#0066FF</text>
+  </g>
+
+  <!-- Row 110 -->
+  <g>
+    <rect x="60" y="120" width="40" height="40" fill="#660000"/>
+    <text x="62" y="148" fill="#FFF">#660000</text>
+
+    <rect x="100" y="120" width="40" height="40" fill="#660011"/>
+    <text x="102" y="148" fill="#FFF">#660011</text>
+
+    <rect x="140" y="120" width="40" height="40" fill="#660033"/>
+    <text x="142" y="148" fill="#FFF">#660033</text>
+
+    <rect x="180" y="120" width="40" height="40" fill="#660033"/>
+    <text x="182" y="148" fill="#FFF">#660033</text>
+
+    <rect x="220" y="120" width="40" height="40" fill="#665500"/>
+    <text x="222" y="148" fill="#FFF">#665500</text>
+
+    <rect x="260" y="120" width="40" height="40" fill="#336611"/>
+    <text x="262" y="148" fill="#FFF">#336611</text>
+
+    <rect x="300" y="120" width="40" height="40" fill="#003311"/>
+    <text x="302" y="148" fill="#FFF">#003311</text>
+
+    <rect x="340" y="120" width="40" height="40" fill="#0000FF"/>
+    <text x="342" y="148" fill="#FFF">#0000FF</text>
+  </g>
+
+  <!-- Row 111 -->
+  <g>
+    <rect x="60" y="160" width="40" height="40" fill="#660022"/>
+    <text x="62" y="188" fill="#FFF">#660022</text>
+
+    <rect x="100" y="160" width="40" height="40" fill="#660033"/>
+    <text x="102" y="188" fill="#FFF">#660033</text>
+
+    <rect x="140" y="160" width="40" height="40" fill="#660033"/>
+    <text x="142" y="188" fill="#FFF">#660033</text>
+
+    <rect x="180" y="160" width="40" height="40" fill="#6633CC"/>
+    <text x="182" y="188" fill="#FFF">#6633CC</text>
+
+    <rect x="220" y="160" width="40" height="40" fill="#665522"/>
+    <text x="222" y="188" fill="#FFF">#665522</text>
+
+    <rect x="260" y="160" width="40" height="40" fill="#336622"/>
+    <text x="262" y="188" fill="#FFF">#336622</text>
+
+    <rect x="300" y="160" width="40" height="40" fill="#003322"/>
+    <text x="302" y="188" fill="#FFF">#003322</text>
+
+    <rect x="340" y="160" width="40" height="40" fill="#0000FF"/>
+    <text x="342" y="188" fill="#FFF">#0000FF</text>
+  </g>
+
+  <!-- Row 011 -->
+  <g>
+    <rect x="60" y="200" width="40" height="40" fill="#FF6E00"/>
+    <text x="62" y="228" fill="#000">#FF6E00</text>
+
+    <rect x="100" y="200" width="40" height="40" fill="#FF0022"/>
+    <text x="102" y="228" fill="#000">#FF0022</text>
+
+    <rect x="140" y="200" width="40" height="40" fill="#665500"/>
+    <text x="142" y="228" fill="#FFF">#665500</text>
+
+    <rect x="180" y="200" width="40" height="40" fill="#665522"/>
+    <text x="182" y="228" fill="#FFF">#665522</text>
+
+    <rect x="220" y="200" width="40" height="40" fill="#FFCC00"/>
+    <text x="222" y="228" fill="#000">#FFCC00</text>
+
+    <rect x="260" y="200" width="40" height="40" fill="#66FF00"/>
+    <text x="262" y="228" fill="#000">#66FF00</text>
+
+    <rect x="300" y="200" width="40" height="40" fill="#00CC00"/>
+    <text x="302" y="228" fill="#000">#00CC00</text>
+
+    <rect x="340" y="200" width="40" height="40" fill="#0066FF"/>
+    <text x="342" y="228" fill="#FFF">#0066FF</text>
+  </g>
+
+  <!-- Row 010 -->
+  <g>
+    <rect x="60" y="240" width="40" height="40" fill="#66DD00"/>
+    <text x="62" y="268" fill="#000">#66DD00</text>
+
+    <rect x="100" y="240" width="40" height="40" fill="#66CC11"/>
+    <text x="102" y="268" fill="#000">#66CC11</text>
+
+    <rect x="140" y="240" width="40" height="40" fill="#336611"/>
+    <text x="142" y="268" fill="#FFF">#336611</text>
+
+    <rect x="180" y="240" width="40" height="40" fill="#336622"/>
+    <text x="182" y="268" fill="#FFF">#336622</text>
+
+    <rect x="220" y="240" width="40" height="40" fill="#66FF00"/>
+    <text x="222" y="268" fill="#000">#66FF00</text>
+
+    <rect x="260" y="240" width="40" height="40" fill="#66FF33"/>
+    <text x="262" y="268" fill="#000">#66FF33</text>
+
+    <rect x="300" y="240" width="40" height="40" fill="#00CC33"/>
+    <text x="302" y="268" fill="#000">#00CC33</text>
+
+    <rect x="340" y="240" width="40" height="40" fill="#0066FF"/>
+    <text x="342" y="268" fill="#FFF">#0066FF</text>
+  </g>
+
+  <!-- Row 001 -->
+  <g>
+    <rect x="60" y="280" width="40" height="40" fill="#00AA00"/>
+    <text x="62" y="308" fill="#000">#00AA00</text>
+
+    <rect x="100" y="280" width="40" height="40" fill="#00AA22"/>
+    <text x="102" y="308" fill="#000">#00AA22</text>
+
+    <rect x="140" y="280" width="40" height="40" fill="#003311"/>
+    <text x="142" y="308" fill="#FFF">#003311</text>
+
+    <rect x="180" y="280" width="40" height="40" fill="#003322"/>
+    <text x="182" y="308" fill="#FFF">#003322</text>
+
+    <rect x="220" y="280" width="40" height="40" fill="#00CC00"/>
+    <text x="222" y="308" fill="#000">#00CC00</text>
+
+    <rect x="260" y="280" width="40" height="40" fill="#00CC33"/>
+    <text x="262" y="308" fill="#000">#00CC33</text>
+
+    <rect x="300" y="280" width="40" height="40" fill="#00CC66"/>
+    <text x="302" y="308" fill="#000">#00CC66</text>
+
+    <rect x="340" y="280" width="40" height="40" fill="#0066FF"/>
+    <text x="342" y="308" fill="#FFF">#0066FF</text>
+  </g>
+
+  <!-- Row 000 -->
+  <g>
+    <rect x="60" y="320" width="40" height="40" fill="#0066FF"/>
+    <text x="62" y="348" fill="#FFF">#0066FF</text>
+
+    <rect x="100" y="320" width="40" height="40" fill="#0066FF"/>
+    <text x="102" y="348" fill="#FFF">#0066FF</text>
+
+    <rect x="140" y="320" width="40" height="40" fill="#0000FF"/>
+    <text x="142" y="348" fill="#FFF">#0000FF</text>
+
+    <rect x="180" y="320" width="40" height="40" fill="#0000FF"/>
+    <text x="182" y="348" fill="#FFF">#0000FF</text>
+
+    <rect x="220" y="320" width="40" height="40" fill="#0066FF"/>
+    <text x="222" y="348" fill="#FFF">#0066FF</text>
+
+    <rect x="260" y="320" width="40" height="40" fill="#0066FF"/>
+    <text x="262" y="348" fill="#FFF">#0066FF</text>
+
+    <rect x="300" y="320" width="40" height="40" fill="#0066FF"/>
+    <text x="302" y="348" fill="#FFF">#0066FF</text>
+
+    <rect x="340" y="320" width="40" height="40" fill="#0066FF"/>
+    <text x="342" y="348" fill="#FFF">#0066FF</text>
+  </g>
+
+</svg>
