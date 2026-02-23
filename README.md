@@ -1,83 +1,78 @@
-# SUBIT‑64 — Structural Bit System (64 Archetypes)
+# SUBIT‑64 — Structural Bit Protocol  
+**Version 2.0 — February 2026**
 
-**SUBIT** is a six‑axis operator of structural dynamics.  
-It models any process as a progression through:
+SUBIT‑64 is a **formal structural protocol** based on a 6‑bit operator that models any process as a progression through:
 
 **Tension → Vector → Interaction → Meaning → Action → Structure**
 
-SUBIT‑64 is the complete system of **64 archetypes**, generated from all possible configurations of `{0,1}^6`.
+SUBIT defines a minimal, deterministic, model‑agnostic operator for structural reasoning in LLMs and agentic systems.
 
-This repository provides:
-- SUBIT RFC (official specification)
-- SUBIT Prompt Pack (LLM usage templates)
-- SUBIT JSON Schema
-- full machine‑readable archetype set
-- examples and integration guides
+This repository contains:
+
+- SUBIT RFC 2.0 (protocol only)  
+- Style‑A reference naming system (separate from RFC)  
+- JSON schema for SUBIT states  
+- architecture and encoding documentation  
+- prompt pack for LLMs  
+- examples and integration guides  
+
+SUBIT is not symbolic or metaphorical.  
+It is a **structural ontology and reasoning protocol**.
 
 ---
 
 ## 🔧 Core Idea
 
-SUBIT is a **structural protocol**, not a philosophy.  
-Its purpose is to provide a universal method for:
+A SUBIT state is defined as:
 
-- analysis  
-- structuring  
-- modeling  
-- generation  
-- transformation  
+```
+SUBIT = {0,1}^6
+```
 
-…inside any LLM or agentic system.
+Each bit corresponds to one axis:
 
-Just as:
+1. Tension  
+2. Vector  
+3. Interaction  
+4. Meaning  
+5. Action  
+6. Structure  
 
-- a *token* is a unit of text  
-- a *vector* is a unit of representation  
-- a *bit* is a unit of information  
-
-**SUBIT is a unit of structural dynamics.**
-
----
-
-## 📐 SUBIT = {0,1}⁶
-
-SUBIT has multiple isomorphic representations:
-
-- `{0,1}^6`  
-- `{Yin, Yang}^6`  
-- `{10, 11, 01, 00}^3`  
-- `{8 trigrams}^2`  
-- `{Blue…Purple}^2`  
-- `{ME/WE/YOU/THEY} × {E/S/W/N} × {Spring/Summer/Autumn/Winter}`  
-
-All describe the same underlying structure — **64 archetypes**.
+This yields a **64‑state structural space**.  
+The RFC defines the operator; implementations may define naming systems or archetype tables.
 
 ---
 
 ## 📘 Documentation
 
-### **SUBIT RFC**
-Official system specification:  
+### **SUBIT RFC 2.0 (Protocol Only)**  
+Defines the operator, axes, encoding formats, and mandatory LLM response structure.  
+Contains **no archetypes**.  
 `/docs/SUBIT-RFC.md`
 
-### **SUBIT Prompt Pack v2.0**
-Ready‑to‑use prompts for any LLM:  
-`/docs/SUBIT-Prompt-Pack-v2.md`
+### **Architecture**  
+Bit structure, axis semantics, and isomorphic encodings (binary, bigram, trigram, color, SVP).  
+`/docs/SUBIT-Architecture.md`
 
-### **SUBIT JSON Schema**
-Machine‑readable SUBIT format:  
-`/schema/subit.schema.json`  
+### **JSON Schema**  
+Machine‑readable definition of a SUBIT state.  
+`/schema/subit.schema.json`
+
+### **Style‑A Naming System (Reference Implementation)**  
+A complete 64‑state naming layer using structural, single‑word, technical names (Origon, Sparon, Divon…).  
+Not part of the RFC.  
+`/docs/SUBIT-Archetype-Guide.md`  
 `/schema/archetypes.json`
 
-### **Archetypes**
-Full set of 64 archetypes:  
-`/data/archetypes/`
+### **Prompt Pack v2.0**  
+Operational prompts for LLMs using the SUBIT protocol.  
+`/docs/SUBIT-Prompt-Pack-v2.md`
 
 ---
 
-## 🧠 SUBIT Response Format
+## 🧠 SUBIT Response Format (LLM Protocol)
 
-Any LLM operating in SUBIT mode responds using:
+Any LLM operating in SUBIT mode **must** respond using:
 
 ```
 Tension:
@@ -88,7 +83,50 @@ Action:
 Structure:
 ```
 
-This is the mandatory format.
+Rules:
+
+- All six axes must be present  
+- Order is fixed  
+- No additional sections allowed  
+
+This is the **mandatory protocol** defined by RFC 2.0.
+
+---
+
+## 🧩 Reference Implementations (Not Part of RFC)
+
+Implementations MAY define:
+
+- naming systems  
+- archetype tables  
+- extended state sets  
+- domain‑specific mappings  
+
+This repository includes one such implementation:
+
+### **Style‑A 64‑State Naming Layer**  
+A structural, technical, neutral naming system using functional suffixes:
+
+```
+-on  latent
+-ex  activation
+-or  force
+-is  interpretation
+-um  stability
+-ax  shift
+-ar  integration
+-us  dissolution
+```
+
+Example:
+
+```
+ID: 0
+Binary: 000000
+Name: Origon
+```
+
+These names are **not normative** and **not part of the RFC**.
 
 ---
 
@@ -100,24 +138,18 @@ subit-64/
 ├── README.md
 ├── LICENSE
 ├── CHANGELOG.md
-├── CONTRIBUTING.md
 ├── ROADMAP.md
 │
 ├── docs/
 │   ├── SUBIT-RFC.md
-│   ├── SUBIT-Prompt-Pack-v2.md
-│   ├── SUBIT-JSON-Schema.md
 │   ├── SUBIT-Architecture.md
+│   ├── SUBIT-Prompt-Pack-v2.md
 │   ├── SUBIT-Archetype-Guide.md
-│   └── SUMMARY.md
+│   └── SUBIT-JSON-Schema.md
 │
 ├── schema/
 │   ├── subit.schema.json
 │   └── archetypes.json
-│
-├── data/
-│   ├── archetypes/
-│   └── subit-colors.json
 │
 ├── examples/
 │   ├── subit-analysis.md
@@ -132,48 +164,44 @@ subit-64/
 
 ---
 
-## 🚀 How to Use SUBIT
+## 🚀 Usage
 
-### **1. In LLMs**
+### **In LLMs**
 ```
 Activate SUBIT mode.
-Respond in T / V / I / M / A / S format.
+Respond in Tension / Vector / Interaction / Meaning / Action / Structure format.
 ```
 
-### **2. In agent systems**
-- use `subit.schema.json`  
-- import `archetypes.json`  
-- treat SUBIT as a state operator
+### **In agent systems**
+- treat SUBIT as a 6‑axis structural operator  
+- optionally map states to Style‑A names  
+- serialize using the JSON schema  
 
-### **3. In custom models**
+### **In custom models**
 - SUBIT can serve as a reasoning layer  
-- or as a structural protocol for analysis/generation
-
----
-
-## 📄 License
-
-MIT
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome.  
-See `/CONTRIBUTING.md`.
+- or as a structural protocol for analysis/generation  
 
 ---
 
 ## 🗺️ Roadmap
 
-- SUBIT RFC 2.0  
+- SUBIT embeddings  
+- transition matrices  
+- agent integration standard  
 - SUBIT Playground  
-- SUBIT CLI  
-- SUBIT Embedding Model (research direction)  
-- SUBIT‑based reasoning for agents  
+- domain‑specific state sets  
+
+---
+
+## 📄 License
+
+MIT License.
 
 ---
 
 ## ⭐ Project Goal
 
-To establish SUBIT as a universal standard for structural reasoning in LLMs, agents, and AI systems.
+To establish SUBIT as a **universal structural protocol** for LLM reasoning, agentic systems, and computational cognition.
+```
+
+---
